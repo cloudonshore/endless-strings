@@ -1,0 +1,82 @@
+@import url(http://fonts.googleapis.com/css?family=Tangerine);
+
+.header > div {
+  display: inline-block;
+}
+
+.header img {
+  width: 100%;
+}
+
+.title-image {
+  opacity: .7;
+  margin-top: 20px;
+}
+
+.header-left {
+  max-width: 60%;
+  width: 600px;
+}
+
+.header-right {
+  max-width: 35%;
+  width: 400px;
+  float: right;
+}
+
+.playlist {
+  margin: 130px auto;
+  max-width: 800px;
+
+}
+
+@accent-color:#555;
+
+.song {
+
+  
+  margin: 5px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  .info {
+    cursor:pointer;
+    .icon {
+      font-size: 18px;
+      margin: 0 7px;
+      color: @accent-color;
+    }
+    .song-title {
+      color: @accent-color;
+      fontSize:20px;
+      font-family: 'Tangerine';
+      font-size: 45px;
+      vertical-align: middle;
+    }
+  }
+  .p-bar {
+    cursor:pointer;
+    .transition(all .7s linear); 
+    width: 99%;
+    height: 0px;
+    background-color: #ddd;
+    margin: 0px auto 0px;
+    .inner-p-bar {
+      width: 0%;
+      .transition(all .1s linear);
+      background-color: @accent-color;
+      height: 100%
+    }
+  }
+  .p-bar.playing {
+    height: 12px;
+    margin: 8px auto 14px;
+  }
+}
+
+
+.transition (@transition) {
+  -webkit-transition: @transition;  
+  -moz-transition:    @transition;
+  -ms-transition:     @transition; 
+  -o-transition:      @transition;  
+}
