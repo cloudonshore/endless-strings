@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Tangerine);
 
+.header {
+  margin: 30px;
+}
+
 .header > div {
   display: inline-block;
 }
@@ -30,14 +34,16 @@
 
 }
 
-@accent-color:#555;
+@accent-color: #555;
+@accent-color-light: #ccc;
+@footer-height: 100px;
 
 .song {
 
   
   margin: 5px;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid @accent-color-light;
   .info {
     cursor:pointer;
     .icon {
@@ -70,6 +76,25 @@
   .p-bar.playing {
     height: 12px;
     margin: 8px auto 14px;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid @accent-color-light;
+  //height: 100px;
+  .filters {
+    max-width: 1100px;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    .form-group {
+      display: inline-block !important;
+      margin: 10px 15px;
+    }
   }
 }
 
