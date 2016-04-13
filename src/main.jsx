@@ -48,7 +48,7 @@ const App = React.createClass({
   },
   fetchSongs(){
       request
-        .get('http://localhost:8877/songs')
+        .get('http://endless-strings.com:8877/songs')
         .query({ limit: limit, offset: offset })
         .end((err, res)=>{
            const songs = res.body.map(song=>{
