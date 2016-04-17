@@ -25,6 +25,13 @@ const Header = React.createClass({
 const limit = 100;
 var offset = 0;
 var done = false;
+
+const filters = {
+  mood:[{"all":"All"},{"Major":"😊"},{"minor":"😔"}],
+  orcestration:[{"all":"All"},{"Strings Concertino":"Strings Concertino"}, {"Strings Tutti":"Strings Tutti"},{"Strings Pizzicato":"Strings Pizzicato"}],
+  tempo:[{"all":"All"},{"Allegro":"Allegro"},{"Lento":"Lento"},{"Presto":"Presto"}]
+};
+
 const App = React.createClass({
  getInitialState(){
     return {
@@ -48,7 +55,7 @@ const App = React.createClass({
   },
   fetchSongs(){
       request
-        .get('http://endless-strings.com:8877/songs')
+        .get('http://endless-strings.com/data/songs')
         .query({ limit: limit, offset: offset })
         .end((err, res)=>{
            const songs = res.body.map(song=>{
@@ -86,18 +93,33 @@ const App = React.createClass({
   playPrevious(id){
     let {songs} = this.state;
     const index = _.findIndex(songs,{_id:id});
-    this.playSong(songs[index+1]._id);
+    if(index != 0)
+    {
+      this.playSong(songs[index-1]._id);
+    }
   },
     render(){
         const {playNext, playSong, playPrevious, changeFilter} = this;
         const {songs, mood, orcestration, tempo} = this.state;
         const filteredSongs = filterSongs(songs,mood, orcestration, tempo);
+        
+        const playingSong = _.find(songs, {playing:true});
+
         window.songs = songs;
         const currentlyPlaying = null;
         return <div>
             <Header />
             <Playlist {...{playNext, playSong, songs:filteredSongs}} />
-            <Footer {...{playNext, playPrevious, currentlyPlaying, mood, orcestration, tempo, changeFilter}} />
+            <Footer {...{playNext, 
+                        playPrevious, 
+                        currentlyPlaying, 
+                        playSong, 
+                        mood, 
+                        orcestration, 
+                        tempo, 
+                        changeFilter, 
+                        playingSong,
+                        filters}} />
         </div>;
     }
 });
