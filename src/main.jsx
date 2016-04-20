@@ -27,9 +27,9 @@ var offset = 0;
 var done = false;
 
 const filters = {
-  mood:[{"all":"All"},{"Major":"😊"},{"minor":"😔"}],
+  mood:[{"all":"All"},{"Major":"😊"},{"Minor":"😔"}],
   orcestration:[{"all":"All"},{"Strings Concertino":"Strings Concertino"}, {"Strings Tutti":"Strings Tutti"},{"Strings Pizzicato":"Strings Pizzicato"}],
-  tempo:[{"all":"All"},{"Allegro":"Allegro"},{"Lento":"Lento"},{"Presto":"Presto"}]
+  tempo:[{"all":"All"},{"Allegro":"Slow"},{"Lento":"Medium"},{"Presto":"Fast"}]
 };
 
 const App = React.createClass({
