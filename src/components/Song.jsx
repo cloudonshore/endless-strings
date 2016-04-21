@@ -84,7 +84,7 @@ const Song = React.createClass({
         <div className={"p-bar " + (playing ? "playing" : "")} style={outerProgressBarStyle} onClick={this.seekProgress} ref="p_bar">
             <div className="inner-p-bar" style={progressBarStyle}></div>
         </div>
-        <AudioPlayer playing={playing} url={url} onProgress={this.onProgress} ref="player" onEnd={this.onEnd}/>
+       {playing?<AudioPlayer playing={playing} url={url} onProgress={this.onProgress} ref="player" onEnd={this.onEnd}/>:null}
       </div>
     }
 });

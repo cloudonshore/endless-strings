@@ -13,6 +13,11 @@ const Footer = React.createClass({
       if(newProps.playingSong){
       this.setState({playingSong: newProps.playingSong});
       }
+      else if(this.state.playingSong) {
+        const newSong = _.extend({}, this.state.playingSong);
+        newSong.playing = false;
+        this.setState({playingSong: newSong});
+      }
     },
     renderFilters(){
       const {mood, orcestration, tempo, changeFilter, playNext, playPrevious, playSong, filters} = this.props;
@@ -39,16 +44,16 @@ const Footer = React.createClass({
       });
     },
     render(){
-        const playing = true;
         const {mood, orcestration, tempo, changeFilter, playNext, playPrevious, playSong, filters} = this.props;
         const {playingSong} = this.state;
+        
         const id = (playingSong ? playingSong._id : null);
         const title = (playingSong ? playingSong.title : null);
         return <div className="footer">
             <div className={"global-info " + (playingSong?"playing":"") }>
               <div className="play-controls">
                 <span className="glyphicon glyphicon-backward" onClick={playPrevious.bind(null,id)}></span>
-                <span className={"glyphicon glyphicon-" + (playingSong?"pause":"play")} onClick={playSong.bind(null,id)}></span>
+                <span className={"glyphicon glyphicon-" + (playingSong.playing?"pause":"play")} onClick={playSong.bind(null,id)}></span>
                 <span className="glyphicon glyphicon-forward" onClick={playNext.bind(null,id)}></span>
               </div>
               <div className="controls-title">
