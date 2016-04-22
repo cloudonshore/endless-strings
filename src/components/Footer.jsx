@@ -53,7 +53,7 @@ const Footer = React.createClass({
             <div className={"global-info " + (playingSong?"playing":"") }>
               <div className="play-controls">
                 <span className="glyphicon glyphicon-backward" onClick={playPrevious.bind(null,id)}></span>
-                <span className={"glyphicon glyphicon-" + (playingSong.playing?"pause":"play")} onClick={playSong.bind(null,id)}></span>
+                <span className={"glyphicon glyphicon-" + (_.get(playingSong,'playing')?"pause":"play")} onClick={playSong.bind(null,id)}></span>
                 <span className="glyphicon glyphicon-forward" onClick={playNext.bind(null,id)}></span>
               </div>
               <div className="controls-title">
