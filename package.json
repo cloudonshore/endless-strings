@@ -9,8 +9,7 @@
     "build": "webpack --config webpack.config.dev.js",
     "mockserver": "babel-node mock-server",
     "servebuild": "python -m SimpleHTTPServer 8001  ",
-    "validate": "node validate/index.js",
-    "prepublish": "cd node_modules/sp-bootstrap; bower -v || npm install -g bower; bower install; cd ../.."
+    "validate": "node validate/index.js"
   },
   "dependencies": {
     "bootstrap": "^3.3.5",
