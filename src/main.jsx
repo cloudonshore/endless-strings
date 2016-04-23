@@ -28,7 +28,7 @@ var done = false;
 
 const filters = {
   mood:[{"all":"All"},{"Major":"😊"},{"Minor":"😔"}],
-  orcestration:[{"all":"All"},{"Strings Concertino":"Strings Concertino"}, {"Strings Tutti":"Strings Tutti"},{"Strings Pizzicato":"Strings Pizzicato"}],
+  orchestration:[{"all":"All"},{"Strings Concertino":"Strings Concertino"}, {"Strings Tutti":"Strings Tutti"},{"Strings Pizzicato":"Strings Pizzicato"}],
   tempo:[{"all":"All"},{"Allegro":"Slow"},{"Lento":"Medium"},{"Presto":"Fast"}]
 };
 
@@ -37,7 +37,7 @@ const App = React.createClass({
     return {
         songs:[],
         mood:"all",
-        orcestration:"all",
+        orchestration:"all",
         tempo:"all"
     };
   },
@@ -100,8 +100,8 @@ const App = React.createClass({
   },
     render(){
         const {playNext, playSong, playPrevious, changeFilter} = this;
-        const {songs, mood, orcestration, tempo} = this.state;
-        const filteredSongs = filterSongs(songs,mood, orcestration, tempo);
+        const {songs, mood, orchestration, tempo} = this.state;
+        const filteredSongs = filterSongs(songs,mood, orchestration, tempo);
         
         const playingSong = _.find(songs, {playing:true});
 
@@ -115,7 +115,7 @@ const App = React.createClass({
                         currentlyPlaying, 
                         playSong, 
                         mood, 
-                        orcestration, 
+                        orchestration, 
                         tempo, 
                         changeFilter, 
                         playingSong,
@@ -124,12 +124,12 @@ const App = React.createClass({
     }
 });
 
-function filterSongs(songs,mood, orcestration, tempo){
+function filterSongs(songs,mood, orchestration, tempo){
    const filters = {}
    if(mood!="all"){
     filters["harmonic_key_type"]=mood;
-   } if(orcestration!="all"){
-    filters["orchestral_preset"]=orcestration;
+   } if(orchestration!="all"){
+    filters["orchestral_preset"]=orchestration;
    } if(tempo!="all"){
     filters["tempo_classification"]=tempo;
    } 
