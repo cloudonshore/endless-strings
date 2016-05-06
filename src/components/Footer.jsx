@@ -43,12 +43,17 @@ const Footer = React.createClass({
         </div>
       });
     },
+    download(url,title){
+      Download(url, title); 
+    },
     render(){
         const {mood, orcestration, tempo, changeFilter, playNext, playPrevious, playSong, filters} = this.props;
         const {playingSong} = this.state;
         
         const id = (playingSong ? playingSong._id : null);
         const title = (playingSong ? playingSong.title : null);
+        const url = (playingSong ? playingSong.url : null);
+
         return <div className="footer">
             <div className={"global-info " + (playingSong?"playing":"") }>
               <div className="play-controls">
@@ -58,6 +63,10 @@ const Footer = React.createClass({
               </div>
               <div className="controls-title">
                 {title}
+                <span className="download-link glyphicon glyphicon-download"
+                      style={{fontSize:'30px', marginLeft:'30px'}}
+                      onClick={this.download.bind(null,url,title)}
+                  ></span>
               </div>
             </div>
             <div className="filters">
@@ -68,6 +77,20 @@ const Footer = React.createClass({
 });
 
 export default Footer
+
+function Download(url, fancyFileName) 
+{
+var file = document.createElement('a');
+file.href = url;
+file.target = '_blank';
+file.download = fancyFileName;
+
+var event = document.createEvent('Event');
+event.initEvent('click', true, true);
+file.dispatchEvent(event);
+window.URL.revokeObjectURL(file.href);
+}
+
 
 /*
                 <div className="form-group">
