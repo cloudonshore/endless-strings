@@ -14,6 +14,11 @@ const Header = React.createClass({
         return <div className="header">
                 <div  className="header-left">
                 <img className="title-image" src={require('assets/title.png')} /> 
+                <div className="credits">
+                  A 6,000 song album made by <a href="http://asdf.us" target="_BLANK">Pepper</a>,  
+                   <a href="https://www.linkedin.com/in/brandon-winston-3b179951" target="_BLANK"> Brandon</a>, 
+                  and <a href="http://cloudonshore.com" target="_BLANK">Sam</a>.
+                </div>
             </div>
             <div className="header-right">
                 <img src={require('assets/header.png')} />
