@@ -3,6 +3,9 @@
   "description": "",
   "author": "Sam W",
   "version": "0.0.1",
+  "babel":{
+    "presets": ["es2015", "react"]
+  },
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.local.js",
     "prebuild": "BRANCH=$(git symbolic-ref --short HEAD)",
