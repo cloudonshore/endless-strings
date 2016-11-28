@@ -1,5 +1,8 @@
 requires node v5.0.0
 install via nvm
+
+nvm install v5.0.0
+
 after completing and running build run 
 
 nvm deactivate
