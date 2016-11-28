@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.local.js",
     "prebuild": "BRANCH=$(git symbolic-ref --short HEAD)",
-    "build": "webpack --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.dev.js && ln -sf $(pwd)/src/assets/og_image.png build/ogimage.png",
     "mockserver": "babel-node mock-server",
     "servebuild": "python -m SimpleHTTPServer 8001  ",
     "validate": "node validate/index.js"
