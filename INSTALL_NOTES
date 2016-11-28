@@ -1,0 +1,7 @@
+requires node v5.0.0
+install via nvm
+after completing and running build run 
+
+nvm deactivate
+
+to reset the system node
